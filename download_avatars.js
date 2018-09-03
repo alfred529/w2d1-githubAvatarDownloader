@@ -14,13 +14,15 @@ function getRepoContributors(repoOwner, repoName, cb) {
   };
 
   request(options, function(err, res, body) {
-    cb(err, body);
+    var parsedStr = JSON.parse(body);
+    cb(err, parsedStr);
   });
 }
 
 getRepoContributors("jquery", "jquery", function(err, result) {
   console.log("Errors:", err);
-  console.log("Result:", result);
+  result.forEach(function(user) {
+    console.log(`${user.login}'s Avatar URL is: ${user.avatar_url}`);
+  });
+
 });
-
-
