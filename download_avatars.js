@@ -6,7 +6,8 @@ var userLogin = process.argv[2];
 var repoOwner = process.argv[3];
 
 console.log('Welcome to the GitHub Avatar Downloader!');
-
+// console.log(userLogin);
+// console.log(repoOwner)
 //---------------------------------------------------------------//
 
 function getRepoContributors(repoOwner, repoName, cb) {
@@ -41,11 +42,15 @@ function downloadImageByURL(url, filePath) {
 //---------------------------------------------------------------//
 
 getRepoContributors(userLogin, repoOwner, function(err, result) {
-  console.log("Errors:", err);
-  result.forEach(function(user) {
-    //console.log(`${user.login}'s Avatar URL is: ${user.avatar_url}`);
-    downloadImageByURL(user.avatar_url, `avatars/${user.login}.jpg`)
-  });
 
+  if (userLogin === undefined || repoOwner === undefined) {
+    console.log("You must input two arguments..");
+  } else {
+    console.log("Errors:", err);
+    result.forEach(function(user) {
+      //console.log(`${user.login}'s Avatar URL is: ${user.avatar_url}`);
+      downloadImageByURL(user.avatar_url, `avatars/${user.login}.jpg`);
+    });
+  }
 });
 
