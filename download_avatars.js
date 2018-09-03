@@ -1,18 +1,21 @@
-// Github API
-// https://api.github.com
-
-// access token:
-// 8e5e59947a26ba3a327874837b86c71a22df38a1
-
-
-
 var request = require('request');
+var secretToken = require('./secrets')
 
 console.log('Welcome to the GitHub Avatar Downloader!');
 
 
 function getRepoContributors(repoOwner, repoName, cb) {
-  // ...
+  var options = {
+    url: "https://api.github.com/repos/" + repoOwner + "/" + repoName + "/contributors",
+    headers: {
+      'User-Agent': 'request',
+      'Authorization': `token ${secretToken.GITHUB_TOKEN}`
+    }
+  };
+
+  request(options, function(err, res, body) {
+    cb(err, body);
+  });
 }
 
 getRepoContributors("jquery", "jquery", function(err, result) {
