@@ -1,5 +1,5 @@
 var request = require('request');
-var secretToken = require('./secrets')
+var secretToken = require('./secrets');
 var fs = require('fs');
 
 var userLogin = process.argv[2];
@@ -40,6 +40,7 @@ function downloadImageByURL(url, filePath) {
 }
 
 //---------------------------------------------------------------//
+// executes the getRepoContributors function
 
 getRepoContributors(userLogin, repoOwner, function(err, result) {
 
