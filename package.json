@@ -1,0 +1,28 @@
+{
+  "name": "githubavatardownloader",
+  "version": "1.0.0",
+  "description": "first individual project",
+  "main": "download_avatars.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alfred529/w2d1-githubAvatarDownloader.git"
+  },
+  "keywords": [
+    "w2d1",
+    "github",
+    "avatar",
+    "downloader"
+  ],
+  "author": "Alfred Law",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alfred529/w2d1-githubAvatarDownloader/issues"
+  },
+  "homepage": "https://github.com/alfred529/w2d1-githubAvatarDownloader#readme",
+  "dependencies": {
+    "request": "^2.88.0"
+  }
+}
